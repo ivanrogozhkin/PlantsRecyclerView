@@ -3,4 +3,7 @@
     <string name="chamomile">Chamomile</string>
     <string name="add_button">Add button</string>
     <string name="add_plant">Add plant</string>
+    <string name="plant_name">Plant name</string>
+    <string name="plant_description">Plant description</string>
+    <string name="done">Done</string>
 </resources>

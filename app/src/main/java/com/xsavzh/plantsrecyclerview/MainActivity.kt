@@ -1,24 +1,20 @@
 package com.xsavzh.plantsrecyclerview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xsavzh.plantsrecyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private val imageIdList = listOf(
-        R.drawable.geran,
-        R.drawable.pion,
-        R.drawable.podsolnuh,
-        R.drawable.romashka,
-        R.drawable.rose,
-        R.drawable.tulpan)
 
-    private var index = 0
 
     private lateinit var binding: ActivityMainBinding
     private val adapter = PlantRecyclerViewAdapter()
+    private var editLauncher: ActivityResultLauncher<Intent>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,27 +23,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         adapter
         init()
+
+        editLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                adapter.addPlant(it.data?.getSerializableExtra("plant") as Plant)
+            }
+        }
     }
 
     private fun init() = with(binding){
-        recyclerView.layoutManager = GridLayoutManager(this@MainActivity, 2)
+        recyclerView.layoutManager = GridLayoutManager(this@MainActivity, 3)
         recyclerView.adapter = adapter
         addPlantBtn.setOnClickListener {
-            if (index > 5) index = 0
-
-            lateinit var title: String
-            when (index) {
-                0 -> title = "Geranium"
-                1 -> title = "Peony"
-                2 -> title = "Sunflower"
-                3 -> title = "Chamomile"
-                4 -> title = "Rose"
-                5 -> title = "Tulip"
-            }
-
-            val plant = Plant(imageIdList[index], title)
-            adapter.addPlant(plant)
-            index++
+            editLauncher?.launch(Intent(this@MainActivity, EditActivity::class.java))
         }
     }
 }
