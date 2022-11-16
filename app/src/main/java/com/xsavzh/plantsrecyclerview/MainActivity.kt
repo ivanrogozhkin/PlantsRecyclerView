@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.xsavzh.plantsrecyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

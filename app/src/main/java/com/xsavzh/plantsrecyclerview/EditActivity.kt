@@ -3,7 +3,6 @@ package com.xsavzh.plantsrecyclerview
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.xsavzh.plantsrecyclerview.databinding.ActivityEditBinding
 
 class EditActivity : AppCompatActivity() {
