@@ -34,7 +34,7 @@
     </androidx.cardview.widget.CardView>
 
     <ImageButton
-        android:id="@+id/next_pic_btn"
+        android:id="@+id/next_pic_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/arrow_right"
@@ -58,7 +58,7 @@
         android:gravity="center"
         android:layout_marginTop="300dp"
         app:layout_constraintStart_toStartOf="@id/prev_pic_button"
-        app:layout_constraintEnd_toEndOf="@id/next_pic_btn"
+        app:layout_constraintEnd_toEndOf="@id/next_pic_button"
         app:layout_constraintTop_toTopOf="@id/card_view">
 
         <androidx.constraintlayout.widget.ConstraintLayout

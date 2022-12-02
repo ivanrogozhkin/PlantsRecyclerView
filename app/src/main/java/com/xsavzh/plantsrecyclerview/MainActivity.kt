@@ -10,7 +10,6 @@ import com.xsavzh.plantsrecyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-
     private lateinit var binding: ActivityMainBinding
     private val adapter = PlantRecyclerViewAdapter()
     private var editLauncher: ActivityResultLauncher<Intent>? = null

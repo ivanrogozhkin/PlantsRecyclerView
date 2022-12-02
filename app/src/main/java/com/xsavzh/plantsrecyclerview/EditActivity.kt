@@ -27,7 +27,7 @@ class EditActivity : AppCompatActivity() {
     }
 
     private fun initButtons() = with(binding) {
-        nextPicBtn.setOnClickListener {
+        nextPicButton.setOnClickListener {
             imageIndex++
             if (imageIndex > imageList.size - 1) imageIndex = 0
             imageId = imageList[imageIndex]
